@@ -1,0 +1,17 @@
+# defaults file for ubuntu-1604-ssh-server
+---
+ubuntu_1604_ssh_server_host_keys_present:
+  - /etc/ssh/ssh_host_ed25519_key
+  - /etc/ssh/ssh_host_rsa_key
+
+ubuntu_1604_ssh_server_host_keys_absent:
+  - /etc/ssh/ssh_host_ecdsa_key
+  - /etc/ssh/ssh_host_dsa_key
+
+ubuntu_1604_ssh_server_configuration:
+  - key: 'KexAlgorithms'
+    value: 'curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256'
+  - key: 'MACs'
+    value: 'umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512'
+  - key: 'PasswordAuthentication'
+    value: 'no'
